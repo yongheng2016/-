@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "首页",
+  "enablePullDownRefresh": true,
+    "backgroundColor": "#eee",
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "index-old-health": "../components/indexOldHealth/indexOldHealth",
+    "index-recommend": "../components/indexRecommend/indexRecommend"
+  }
+}

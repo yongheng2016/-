@@ -1,0 +1,60 @@
+<!--pages/orderGoods/orderGoods.wxml-->
+<import src="../templates/pageTitle" />
+<wxs src="../../common/wxs/imgUrl.wxs" module="urlHandler"></wxs>
+<wxs src="../../common/wxs/date.wxs" module="dateHandler"></wxs>
+<wxs src="../../common/wxs/number.wxs" module="numberHandler"></wxs>
+<view class='tabWrapper'>
+    <!-- <template is="pageTitle" data="{{title: '订单中心'}}"/> -->
+    <view class='tabContainer'>
+        <view class='tabItem' wx:for="{{tabText}}" wx:key="*this" id="{{'tabItem-'+index}}" bindtouchstart="_checkoutTab">
+            <view class="{{currentIndex == index ? 'tabItem active': 'tabItem' }}">{{item}} </view>
+        </view>
+    </view>
+</view>
+<view class='swiper-container'>
+    <swiper 
+        class='swiper' 
+        indicator-dots="{{indicatorDots}}" 
+        autoplay="{{autoplay}}" 
+        interval="{{interval}}" 
+        duration="{{duration}}" 
+        current="{{current}}" 
+        bindchange="change"
+    >
+        <block wx:for="{{tabText}}">
+            <swiper-item class="swiper-item">
+                <scroll-view class='scroll-view' scroll-y bindscrolltolower="scrollToLower">
+                    <view class='scroll-contents'>
+                        <view wx:for="{{orderData}}" class='order-container'>
+                            <view>
+                                <view wx:for="{{item.OrderGoods}}" wx:for-item="itemData">
+                                    <view class='order-item'>
+                                        <image src="{{urlHandler.cutFirstUrl(itemData.goodsImg, true)}}" class="slide-image"></image>
+                                        <view>{{itemData.goodsName}}</view>
+                                        <view class='order-detail'>
+                                            <text class='detail-common'>￥{{itemData.orderGoodsPrice}}</text>
+                                            <text class='detail-midlle detail-common'>邮费：{{itemData.costPrice}}</text>
+                                            <text class='detail-common'>X{{itemData.goodsNumber}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class='order-total'>
+                                    <view>{{dateHandler._toLocalTime(item.orderDate)}}</view>
+                                    <view class='total-price'>
+                                        <text>共计：{{numberHandler.totalNumber(item.OrderGoods)}}件 | </text>
+                                        <text>合计：￥{{item.orderPrice}}</text>
+                                    </view>
+                                </view>
+                                <view class='order-btn'>
+                                    <navigator class='btn-common'>删除订单</navigator>
+                                    <navigator  class='btn-common' url='../orderGoodsDetail/orderGoodsDetail?orderId={{item.orderId}}'>订单详情</navigator>
+                                    <navigator class='btn-common'>删除订单</navigator>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>

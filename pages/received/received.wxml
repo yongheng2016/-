@@ -1,0 +1,25 @@
+<!--pages/received/received.wxml-->
+<scroll-view class='continer'  scroll-y="true" scroll-with-animation="true">
+    <view class='img-container'>
+        <image class='logo-pic' src="../../images/logo@3x.png"></image>
+        <image class='logo-state' src="../../images/tupianziti.png" mode="widthFix"></image>
+    </view>
+     <view class='ad-container' wx:for="{{adImgs}}">
+        <view class="wrapper">
+                <image class='pic' 
+                    src="{{'https://www.tamaidan.com/imgs/'+item.IndexImg}}" 
+                    mode="widthFix"
+                ></image>
+        </view>
+    </view> 
+</scroll-view>
+<view class='shortcut-entrance'>
+    <view class='wrapper'>
+        <image class='logo' src="../../images/logo@3x.png"></image>
+        <view>
+            <view class='headline'>他买单</view>
+            <view class='subhead'>引领直销免费时代</view>
+        </view>
+    </view> 
+        <navigator class='share-btn' url="../logs/logs?title=navigate" hover-class="navigator-hover">跳转到新页面</navigator>
+</view>

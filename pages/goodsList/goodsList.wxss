@@ -1,0 +1,25 @@
+/* pages/goodsList/goodsList.wxss */
+page {
+    height: 100%;
+}
+.scroll-view {
+    height: 100%;
+}
+.goods-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px 10px;
+    border: 1px solid #eee;
+    font-size: 16px;
+}
+.goodsPic {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+.goods-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

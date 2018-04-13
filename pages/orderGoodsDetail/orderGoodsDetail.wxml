@@ -1,0 +1,57 @@
+<!--pages/orderGoodsDetail/orderGoodsDetail.wxml-->
+<wxs src="../../common/wxs/imgUrl.wxs" module="imgHandler"></wxs>
+<view class='header'>
+    <text>待付款</text>
+    <i class="icon iconfont footer-icon-wuliu"></i>
+</view>
+<view class='contents'>
+    <view class='consignee-information '>
+        <i class="icon iconfont footer-icon-tiyan"></i>
+        <view class='info'>
+            <view class='name'>收件人：{{orderData.orderUserName}}</view>
+            <view class='adresss'>收货地址：{{orderData.orderAddressName}}</view>
+        </view>
+    </view>
+    <view class='detail-container' wx:for="{{orderData.OrderGoods}}">
+        <view class='goodsDetail'>
+            <view class='orderId'>订单号{{item.orderId}}</view>
+            <view class='orderDetail'>
+                <image class='goodsImg' src="{{imgHandler.cutFirstUrl(item.goodsImg, true)}}" mode='widthFix'></image>
+                <text>{{item.goodsName}}</text>
+                <view>
+                    <view class='goodsName goodsinfo'>{{item.orderGoodsPrice}}</view>
+                    <view class='goodsNumber goodsinfo'>X{{item.goodsNumber}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='btn-container service'>
+        <view class='btn' bind:touchstart="_call">联系客服</view>
+    </view>
+    <view class='logisticsDetail rightArrow' bind:touchstart="_logisticsShow">
+        <i class='icon iconfont footer-icon-xiaohuoche'></i>
+    </view>
+    <view class='logistics'>
+        <view class='logistics-common logistics-number'>
+            <text>货运单号：{{orderData.orderZto}}</text>
+            <image class='logistics-img' src='../../images/ztologo.jpg' mode='widthFix'></image>
+        </view>
+        <view class='logistics-common'>
+            <text>总价</text>
+            <text>{{orderData.orderPrice - orderData.freight}}</text>
+        </view>
+        <view class='logistics-common freight'>
+            <text>运费</text>
+            <text>{{orderData.freight}}</text>
+        </view>
+        <view class='logistics-common'>
+            <text>订单总价</text>
+            <text>{{orderData.orderPrice}}</text>
+        </view>
+        <view class='orderStatus'>待付款</view>
+    </view>
+</view>
+<view class='btn-container'>
+    <text class='btn'>去付款</text>
+</view>
+<logistics-detail showDialog="{{showDialog}}"></logistics-detail>

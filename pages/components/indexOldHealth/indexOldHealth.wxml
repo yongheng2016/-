@@ -1,0 +1,12 @@
+<view class='container'>
+    <view class='title'>核心科技 库尔创造</view>
+    <view wx:for="{{homeClass}}">
+        <view class='item'>
+            <image class='pictrue' src="{{'https://www.tamaidan.com/imgs/'+item.GoodsTypeUrl}}" mode="aspectFit"></image>
+            <view class='contents'>
+                <view class='prodName'>{{item.GoodsTypeName}}</view>
+                <view>{{item.GoodsTypeName}}</view>
+            </view>
+        </view>
+    </view>
+</view>

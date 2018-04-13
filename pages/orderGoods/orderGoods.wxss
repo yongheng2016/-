@@ -1,0 +1,128 @@
+/* pages/orderGoods/orderGoods.wxss */
+
+page {
+    height: 100%;
+}
+/* 通过给scroll-contents添加一个伪元素代替tab栏的高度（只需要将tab栏关于高度的样式拿过来高度就相同了） */
+.scroll-contents::before {
+    content: '占位';
+    display: block;
+    font-size: 18px;
+    background: transparent;
+    padding: 8px;
+    color: transparent;
+}
+
+.scroll-contents {
+    border-bottom: 1px solid transparent;
+}
+
+.tabWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: #fff;
+}
+
+.tabContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1rpx solid #eee;
+    font-size: 18px;
+}
+
+.tabContainer .tabItem {
+    padding: 4px 8px;
+}
+
+.tabContainer .active {
+    box-sizing: border-box;
+    border-radius: 2px;
+    background: #ddd;
+    color: #c136a9;
+}
+
+.swiper-container {
+    height: 100%;
+    background: #efefef;
+}
+
+.scroll-view {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-item {
+    width: 100%;
+}
+
+.order-container {
+    background: #fff;
+    margin-bottom: 16px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    margin: 0 10px;
+    background: #fff;
+    font-size: 18px;
+}
+
+.detail-common {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.detail-midlle {
+    margin: 6px 0;
+    color: #c136a9;
+}
+
+.slide-image {
+    width: 200rpx;
+    height: 140rpx;
+}
+
+.order-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    border-bottom: 1px solid #bbb;
+    font-size: 14px;
+}
+
+.order-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 14px 8px;
+    font-size: 16px;
+}
+
+.btn-common {
+    padding: 6px 10px;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    margin-left: 6px;
+}

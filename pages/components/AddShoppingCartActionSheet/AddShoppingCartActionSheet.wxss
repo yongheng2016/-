@@ -1,0 +1,52 @@
+/* pages/components/AddShoppingCartActionSheet/AddShoppingCartActionSheet.wxss */
+ .shade {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    background: rgba(0,0,0,.2);
+} 
+.sheet-container {
+    position: fixed;
+    bottom: -200px;
+    right: 0;
+    left: 0;
+    background: #fff;
+    padding: 0 10px 10px 10px;
+}
+.select-heder {
+     position: relative;
+    text-align: center;
+     padding: 10px 0; 
+    border-bottom: 1px solid #ccc;
+}
+.icon-cancel {
+     position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%); 
+}
+.select-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+.number-operate {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+.operate-common {
+    width: 24px;
+    text-align: center;
+    border: 1px solid #222;
+}
+.number {
+    width: 80px;
+    text-align: center;
+    border: 1px solid #222;
+    margin: 0 5px;
+}

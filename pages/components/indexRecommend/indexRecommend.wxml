@@ -1,0 +1,11 @@
+<!--pages/components/recommend/recommend.wxml-->
+<view class='container'>
+    <view wx:for="{{homeGoods}}">
+        <view class='title'>{{item.GoodsTypeName}}</view>
+        <view wx:for="{{item.list}}" wx:for-item="temp">
+            <navigator class='img-container' url='../goodsDetail/goodsDetail'>
+                <image class='img' src="{{'https://www.tamaidan.com/imgs/'+temp.AdWaresImg}}" mode='widthFix'></image>
+            </navigator>
+        </view>
+    </view>
+</view>

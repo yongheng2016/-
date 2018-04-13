@@ -1,0 +1,9 @@
+var _toLocalTime = function(timestamp){
+    if (!timestamp) return ''
+    var date = getDate(timestamp)
+    return date.toLocaleString('chinese', {hour12: false})
+}
+
+module.exports = {
+    _toLocalTime: _toLocalTime
+}

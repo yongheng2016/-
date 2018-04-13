@@ -1,0 +1,15 @@
+<!--pages/goodsList/goodsList.wxml-->
+<wxs src='../../common/wxs/imgUrl.wxs' module="tools" />
+<scroll-view class='scroll-view' scroll-y scroll-with-animation="true">
+    <view class='goods-list' wx:for="{{goodsList}}" wx:key="item.GoodsId">
+        <navigator class='goods-item' url='../goodsDetail/goodsDetail?goodsId={{item.GoodsId}}'>
+            <image class='goodsPic' src="{{tools.cutFirstUrl(item.GoodsImg, true)}}"></image>
+            <view class='goods-info'>
+                <text>商品: {{item.GoodsName}}</text>
+                <text>价格: {{item.GoodsPrice}}</text>
+                <text>销量: {{item.GoodsOrderNumber}}</text>
+                <text>邮费: {{item.CostName}}</text>
+            </view>
+        </navigator>
+    </view>
+</scroll-view>

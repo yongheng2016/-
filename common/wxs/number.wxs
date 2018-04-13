@@ -1,0 +1,12 @@
+var totalNumber = function (goodsLength) {
+    var total = 0
+    if (!goodsLength) return ''
+    goodsLength.forEach( function (val, index) {
+        total += parseInt(val.goodsNumber)
+    })
+    return total
+}
+
+module.exports = {
+    totalNumber: totalNumber
+}
