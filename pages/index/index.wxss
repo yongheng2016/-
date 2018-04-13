@@ -1,0 +1,16 @@
+/**index.wxss**/
+.swiper {
+ height: 400rpx;
+ width: 100%;
+ padding-bottom: 10px;
+}
+.slide-image {
+    height: 100%;
+}
+.swiper image {
+ box-sizing: border-box;
+ height: 100%;
+ width: 100%;
+ border-radius: 18px;
+ padding: 4px;
+}

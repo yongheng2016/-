@@ -1,0 +1,55 @@
+<!--pages/personalCenter/personalCenter.wxml-->
+<import src="../templates/pageTitle" />
+<scroll-view class='scroll-view' scroll-y scroll-with-animation="true">
+    <!-- <template is="pageTitle" data="{{title: '用户中心'}}"/> -->
+    <view>
+        <view class='header'>
+            <image class='pic' src="http://dummyimage.com/50x50/325425/fff&text=center"></image>
+            <text class='phone'>phone: 1312421412</text>
+        </view>
+        <view class='order-btn'>
+            <navigator url="../orderGoods/orderGoods?id=0" hover-class="order-btn-active" class='btn-item'>
+                <i class="icon iconfont footer-icon-quanbu"></i>
+                <text class='text'>全部</text>
+            </navigator>
+            <navigator url="../orderGoods/orderGoods?id=1" hover-class="order-btn-active" class='btn-item'>
+                <i class="icon iconfont footer-icon-1111112"></i>
+                <text class='text'>待支付</text>
+            </navigator>
+            <navigator url="../orderGoods/orderGoods?id=2" hover-class="order-btn-active" class='btn-item'>
+                <i class="icon iconfont footer-icon-daishouhuo"></i>
+                <text class='text'>待收货</text>
+            </navigator>
+            <navigator url="../orderGoods/orderGoods?id=3" hover-class="order-btn-active" class='btn-item'>
+                <i class="icon iconfont footer-icon-yiwancheng"></i>
+                <text class='text'>已完成</text>
+            </navigator>
+        </view>
+        <view class='personal-list'>
+            <navigator class='list-item'>
+                <i class="icon iconfont footer-icon-jifen" style="color: #fd4646"></i>
+                <text class='text'>我的奖励</text>
+            </navigator>
+            <navigator class='list-item'>
+                <i class="icon iconfont footer-icon-dizhi2" style="color: #46a5fd"></i>
+                <text class='text'>收货地址</text>
+            </navigator>
+            <navigator class='list-item'>
+                <i class="icon iconfont footer-icon-yajin-copy" style="color: #46e436"></i>
+                <text class='text'>我的押金</text>
+            </navigator>
+            <navigator class='list-item'>
+                <i class="icon iconfont footer-icon-yisheng" style="color: #787878"></i>
+                <text class='text'>血糖医生</text>
+            </navigator>
+            <navigator class='list-item'>
+                <i class="icon iconfont footer-icon-youhuiquan" style="color: #fd4646"></i>
+                <text class='text'>领用试纸</text>
+            </navigator>
+            <navigator class='list-item list-item-last'>
+                <i class="icon iconfont footer-icon-102"></i>
+                <text class='text'>帮助</text>
+            </navigator>
+        </view>
+    </view>
+</scroll-view>

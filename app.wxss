@@ -1,0 +1,41 @@
+/**app.wxss**/
+@import "./iconfont/index.wxss";
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 200rpx 0;
+    box-sizing: border-box;
+}
+
+.page-head-title {
+    padding: 10px 16px;
+    background: #fff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.page-head-title-text {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.rightArrow {
+    position: relative;
+}
+.rightArrow:after {
+    border: solid 1px #c8c8cd;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    content: " ";
+    top: 50%;
+    right: 20px;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    -webkit-transform: translateY(-50%) rotate(45deg);
+    transform: translateY(-50%) rotate(45deg);
+}

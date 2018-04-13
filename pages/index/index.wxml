@@ -1,0 +1,15 @@
+<import src="../templates/pageTitle" />
+<scroll-view class='scroll-view' scroll-y="true" scroll-with-animation="true" bindscrolltoupper="scrolltoupper">
+    <!-- <template is="pageTitle" data="{{title: '首 页'}}" /> -->
+    <swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" previous-margin="14px" next-margin="14px" indicator-color="#999" indicator-active-color="gold">
+        <block wx:for="{{imgUrls}}" wx:key="key">
+            <swiper-item>
+                <navigator  class="slide-image" url='../goodsDetail/goodsDetail' hover-class='none'>
+                <image src="{{'https://www.tamaidan.com/imgs/'+item.advertisingImg}}" class="slide-image" />
+                </navigator>
+            </swiper-item>
+        </block>
+    </swiper>
+    <index-old-health home-class="{{homeClass}}"></index-old-health>
+    <index-recommend home-goods="{{homeGoods}}"></index-recommend>
+</scroll-view>

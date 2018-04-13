@@ -1,0 +1,62 @@
+/* pages/received/received.wxss */
+  .img-container {
+     margin: 0 20px; 
+    margin-bottom: 10px;
+}  
+.logo-pic {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}   
+  .logo-state {
+    width: 120px;
+}    
+.ad-container .wrapper {
+    text-align: center;
+}
+.pic {
+    width: 660rpx;
+    box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; 
+    margin-bottom: 20px;  
+}
+.shortcut-entrance {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 6px;
+    border-radius: 10px;
+    background: rgba(238,238,238,.7);
+    opacity: 0.95;
+    font-size: 16px;
+}
+.shortcut-entrance .wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #222;
+}
+.shortcut-entrance .logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+.subhead {
+    font-size: 12px;
+    color: #666;
+}
+.share-btn {
+     padding: 4px 6px; 
+    border-radius: 6px;
+    background: #c136a9;
+    color: #fff;
+    font-size: 14px;
+}
+.navigator-hover {
+    background: #c034a7;  
+    color: #ddd;
+}

@@ -1,0 +1,12 @@
+var host = 'https://www.tamaidan.com/imgs/'
+var cutFirstUrl = function (urls, cut) {
+    if (!urls) return ''
+    if (cut) return host + urls.split(',')[0]
+    return urls.split(',').map( function (item) {
+        return host+item
+    })
+}
+module.exports = {
+    cutFirstUrl: cutFirstUrl
+};
+module.exports.host = host;

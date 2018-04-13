@@ -1,0 +1,21 @@
+/* pages/components/logisticsDetail/logisticsDetail.wxss */
+
+.logisticsDetail-container {
+    box-sizing: border-box;
+    background: transparent;
+    position: fixed;
+    padding-top: 30px;
+    top: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.logisticsDetail-contents {
+    background: #fff;
+    height: 100%;
+}
+.header {
+    border-radius: 10px 10px 0 0 /10px 10px 00;
+    background: red;
+}

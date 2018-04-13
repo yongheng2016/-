@@ -1,0 +1,119 @@
+/* pages/orderGoodsDetail/orderGoodsDetail.wxss */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background: #c136a9;
+    font-size: 24px;
+    color: #fff;
+}
+
+.footer-icon-wuliu {
+    font-size: 38px;
+}
+
+.consignee-information {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.footer-icon-tiyan {
+    font-size: 22px;
+}
+
+.info {
+    margin-left: 10px;
+}
+
+.adresss {
+    font-size: 16px;
+    color: #666;
+}
+
+.detail-container {
+    padding: 0 10px;
+    background: #fff;
+    color: #999;
+}
+
+.goodsDetail {
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+.orderDetail {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 10px;
+}
+
+.goodsImg {
+    width: 100px;
+    background: red;
+}
+
+.goodsinfo {
+    text-align: right;
+    color: #c136a9;
+}
+.btn-container {
+    padding: 20px 10px;
+    text-align: right;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px  solid #ccc;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    background: #fff;
+    font-size: 18px;
+}
+.service {
+    margin-top: -1px;
+}
+.logisticsDetail {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.footer-icon-xiaohuoche {
+    font-size: 20px;
+    color: #aaa;
+}
+.logistics {
+    padding: 10px;
+    background: #fff;
+    color: #999;
+}
+.logistics-number {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logistics-common {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.logistics-img {
+    width: 40px;
+}
+.orderStatus {
+    text-align: right;
+    font-size: 20px;
+    color: #c136a9;
+}
+ .logisticsDialog {
+     position: absolute;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background: green;
+} 

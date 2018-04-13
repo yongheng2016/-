@@ -1,0 +1,57 @@
+<!--pages/goodsDetail/goodsDetail.wxml-->
+<wxs src="../../common/wxs/imgUrl.wxs" module="tools" />
+<swiper indicator-dots="true" autoplay="true" circular="true" indicator-active-color="#c136a9">
+    <block wx:for="{{tools.cutFirstUrl(adImg, false)}}">
+        <swiper-item>
+            <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+    </block>
+</swiper>
+<view>
+    <view class='goods-info'>
+        <view class='goodsName'>{{goodsDetail.GoodsName}}</view>
+        <view class='goodsPrice'>￥{{goodsDetail.CostPrice}}</view>
+        <view class='goodsOrderNumber'>
+            <text>累计销量：{{goodsDetail.GoodsOrderNumber}}</text>
+            <text>北京</text>
+        </view>
+    </view>
+    <view>
+        <view class='goods-param rightArrow' bindtouchstart='_showPanel'>
+            <view>产品规格</view>
+        </view> 
+        <view animation="{{animationPanel}}">
+            <view class='param-panel' wx:for="{{goodsStandard}}">
+                <view class='param-item'>
+                    <text>{{item.k}}: </text>
+                    <text>{{item.v}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='goods-param goods-postage'>
+        <view>邮费说明</view>
+    </view>
+</view>
+<view class='goods-detaill-container'>
+    <view class='goods-detail'>
+        <view class='detail-header'>
+            <i class="icon iconfont footer-icon-tupian1 iconBefore"></i>
+            <text class='info'>详情</text>
+        </view>
+    </view>
+    <view class='detail-img-container'>
+        <block wx:for="{{tools.cutFirstUrl(detailsImg, false)}}">
+            <image class='info-img' src="{{item}}" lazy-load="true" mode="widthFix"></image>
+        </block>
+    </view>
+</view>
+<view class='footer-btn'>
+    <view class='footer-item footer-shopping-cart' bind:touchstart="_viewShoppingCart">
+        <i class="icon iconfont footer-icon-gouwuche"></i>
+        <view>查看清单</view>
+    </view>
+    <view class='footer-item footer-add-cart' bindtap="showActionSheet">加入清单</view>
+    <view class='footer-item footer-buy'>提交订单</view>
+</view>
+<add-shopping-cart-action-sheet addNumber="2" actionSheetShow="{{actionSheetShow}}" bind:click_btn="main_page_mehod"></add-shopping-cart-action-sheet>
