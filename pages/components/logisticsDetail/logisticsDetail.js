@@ -28,6 +28,19 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
-  }
+      _hideDialog() {
+          var hide_top = _animation._top('100%').step()
+          this.setData({
+              dialogShow: hide_top.export()
+          })
+      }
+  },
+    created() {
+       wx.request({
+           url: 'https://m.tamaidan.com/backtest/Order/TraceInfo',
+           success: function (res) {
+               console.log('res')
+           }
+       })
+    }
 })

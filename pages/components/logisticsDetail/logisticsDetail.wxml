@@ -1,27 +1,34 @@
 <!--pages/components/logisticsDetail/logisticsDetail.wxml-->
 <view class='logisticsDetail-container' animation="{{dialogShow}}" catchtouchmove>
     <view class='logisticsDetail-contents'>
-    <view class='header'>
-        <view>
-            <view>tes</view>
-            <view>tes</view>
+        <view class='logisticsDetail-wrapper'>
+
+            <view class='header'>
+            <view class='icon-pullDown'>
+                <i class='icon iconfont footer-icon-xiala' bind:touchstart="_hideDialog">tet</i>
+            </view>
+                <view>
+                    <view>tes</view>
+                    <view>tes</view>
+                </view>
+            </view>
+            <view>test</view>
+            <view>test</view>
+            <view>test</view>
+            <view>test</view>
+            <view>test</view>
+            <view>test</view>
+            <view>test</view>
+            <view>test</view>
+            <view>test</view>
+            <view>test</view>
+
+            <view>test</view>
+            <view>test</view>
+            <view>test</view>
+            <view>test</view>
+            <view>test</view>
+            <view>test</view>
         </view>
-    </view>
-    <view>test</view>
-    <view>test</view>
-    <view>test</view>
-    <view>test</view>
-    <view>test</view>
-    <view>test</view>
-    <view>test</view>
-    <view>test</view>
-    <view>test</view>
-    <view>test</view>
-    <view>test</view>
-    <view>test</view>
-    <view>test</view>
-    <view>test</view>
-    <view>test</view>
-    <view>test</view>
     </view>
 </view>

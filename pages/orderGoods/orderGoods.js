@@ -16,7 +16,6 @@ Page({
         current: 0
     },
     onLoad(options) {
-        console.log(options)
         this.setData({
             currentIndex: options.id,
             current: options.id
@@ -26,7 +25,6 @@ Page({
             url: '/Order/QueryOrder',
             data: {},
             success: function (res) {
-                console.log(res)
                 _wx.setData({
                     orderData: res.data.data
                 })
@@ -40,7 +38,6 @@ Page({
         console.log('query', query)
     },
     change(event) {
-        console.log(event.detail.current)
         this.setData({
             currentIndex: event.detail.current
         })

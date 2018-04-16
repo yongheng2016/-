@@ -5,13 +5,18 @@ App({
     },
     globalData: {
         userInfo: {},
-        hasUserInfo: false
+        hasUserInfo: false,
+        baseHost: 'https://m.tamaidan.com/backtest'
     },
     onLaunch: function () {
         // 展示本地存储能力
         var logs = wx.getStorageSync('logs') || []
         logs.unshift(Date.now())
         wx.setStorageSync('logs', logs)
+        wx.setStorage({
+            key: "singtrue",
+            data: "oz4l9w6ZrvGjlf66TMdbVR7atXHo,1523596660,DBB580256C45BC24771D74F03653D05E"
+        })
 
         // 登录
         // wx.login({

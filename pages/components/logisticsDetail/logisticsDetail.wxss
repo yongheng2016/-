@@ -12,10 +12,17 @@
 }
 
 .logisticsDetail-contents {
+    background: transparent;
+    height: 100%;
+}
+.logisticsDetail-wrapper {
     background: #fff;
     height: 100%;
 }
 .header {
     border-radius: 10px 10px 0 0 /10px 10px 00;
-    background: red;
+    background: green;
+}
+.icon-pullDown {
+    text-align: center;
 }
