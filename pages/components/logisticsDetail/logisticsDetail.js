@@ -9,6 +9,7 @@ Component({
           type: Boolean,
           value: false,
           observer: function () {
+              console.log(this)
               var show_top = _animation._top(0).step()
               this.setData({
                   dialogShow: show_top.export()

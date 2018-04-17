@@ -9,7 +9,8 @@ Page({
      */
     data: {
         addressList: [],
-        defaultId: 0
+        defaultId: 0,
+        editAddressInfo: {}  //传入
     },
 
     /**
@@ -121,6 +122,11 @@ Page({
                     addressList: res.data.data
                 })
             }
+        })
+    },
+    _editAddress(event) {
+        this.setData({
+            editAddressInfo: event.currentTarget.dataset.address
         })
     }
 })

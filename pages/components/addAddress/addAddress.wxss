@@ -1,5 +1,15 @@
-/* pages/addressAdd/addressAdd.wxss */
-
+/* pages/components/addaddress/addAddress.wxss */
+ .addressContainer {
+    box-sizing: border-box;
+    background: transparent;
+    position: fixed;
+    top: 100%;
+     bottom: 0; 
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: #eee;
+} 
 .common {
     display: flex;
     justify-content: flex-start;
@@ -19,14 +29,28 @@
     text-overflow: ellipsis;
     
 }
-.textarea {
+ .addressDetail {
     padding: 4px 10px;
     background: #fff;
 }
 .input-textarea {
+    position: relative;
     width: 100%;
+    height: 200px;
+    z-index: 3;
     padding: 0;
+    font-size: 50px;
     margin: 0;
+} 
+.tests {
+    color: red;
+    border: 1px solid red;
+    background: green;
+    display: inline;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
 }
 .switch {
     display: flex;
@@ -37,10 +61,11 @@
     margin-top: 28px;
 }
 .add-btn {
-    position: fixed;
+     position: absolute;
     right: 0;
     left: 0;
-    bottom: 0;
+    bottom: 0;   
+    transform: translateY(100%);
     background: #c136a9;
     color: #fff;
 }

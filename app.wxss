@@ -1,6 +1,8 @@
 /**app.wxss**/
 @import "./iconfont/index.wxss";
-
+page {
+    background: #eee;
+}
 .container {
     height: 100%;
     display: flex;

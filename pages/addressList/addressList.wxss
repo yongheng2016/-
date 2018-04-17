@@ -1,4 +1,10 @@
 /* pages/address/address.wxss */
+/* page {
+    height: 100%;
+} */
+.address-list-container {
+    height: 100%;
+}
 .address-list {
     padding: 0 16px;
 }
