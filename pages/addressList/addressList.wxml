@@ -1,4 +1,5 @@
 <!--pages/address/address.wxml-->
+<wxs src='../../common/wxs/utils.wxs' module='tools'></wxs>
 <scroll-view class='address-list-container'>
     <view class='address-list'>
         <view class='address-item' wx:for="{{addressList}}">
@@ -18,14 +19,14 @@
                     <text class='operate-text'>默认地址</text>
                 </view>
                 <view class='operate-wrapper'>
-                    <!-- <navigator class='item-edit' url='../addressAdd/addressAdd?addressId={{item}}'>
-                    <i class='icon iconfont footer-icon-edit'></i>
-                    <text class='operate-text'>编辑</text>
-                </navigator> -->
-                    <view class='item-edit' data-address="{{item}}" bindtouchstart="_editAddress">
+                    <navigator class='item-edit' url='../addressAdd/addressAdd?addressId={{tools.jsonStringify(item)}}'>
                         <i class='icon iconfont footer-icon-edit'></i>
                         <text class='operate-text'>编辑</text>
-                    </view>
+                    </navigator>
+                    <!-- <view class='item-edit' data-address="{{item}}" bindtouchstart="_editAddress">
+                        <i class='icon iconfont footer-icon-edit'></i>
+                        <text class='operate-text'>编辑</text>
+                    </view> -->
                     <view class='item-delete' id="{{item.id}}" bindtouchstart="_addressDelete">
                         <i class='icon iconfont footer-icon-shanchu'></i>
                         <text class='operate-text'>删除</text>
@@ -37,5 +38,5 @@
     <navigator class='add-btn' url='../addressAdd/addressAdd'>
         <button class='btn' bindtouchstart="_addAdress">新增地址</button>
     </navigator>
-    <add-address addressInfo="{{editAddressInfo}}"></add-address>
 </scroll-view>
+<!-- <add-address addressInfo="{{editAddressInfo}}"></add-address> -->

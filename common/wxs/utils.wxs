@@ -1,0 +1,7 @@
+function jsonStringify(val) {
+    return JSON.stringify(val)
+}
+
+module.exports = {
+    jsonStringify: jsonStringify
+}

@@ -17,7 +17,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this._requestAdress()
+        // this._requestAdress()
     },
 
     /**
@@ -31,7 +31,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this._requestAdress()
     },
 
     /**
@@ -105,7 +105,7 @@ Page({
                 addressId,
                 singtrue
             },
-            success: () =>{
+            success: () => {
                 this._requestAdress()
             }
         })

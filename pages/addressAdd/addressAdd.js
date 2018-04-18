@@ -3,17 +3,30 @@ let App = getApp()
 let { checkPhone } = require('../../common/js/number.js')
 let areaData = require('../../common/js/areaData.js')
 let provinces = areaData.iosProvinces
-let citys = []
-let countys = []
+let citys = areaData.iosCitys.filter((item) => {
+    if (item.parentId == 110000) {
+        return item
+    }
+})
+let countys = areaData.iosCountys.filter((item) => {
+    if (item.parentId == 110001) {
+        return item
+    }
+})
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        personName: 'test',
-        personPhone: 15001145400,
-        areaArrayIndex: [5, 7, 9],
+        personName: '',  //姓名
+        personPhone: '',  //电话
+        addressDetail: '', //详细街道
+        addressStatus: 0, //是否为默认地址
+        addressId: '',
+        pathName: '/User/UpdateAddress',  //默认为更新地址接口，如果是从编辑跳转来即为新增地址接口
+        areaArrayIndex: [0, 0, 0],
         region: [],
         areaArray: [provinces, citys, countys],
         areaArrayId: []
@@ -23,19 +36,13 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(options)
-        let addressId = options.addressId || 84
-        this._areaDataInit(410000, 410100, 410101)  //初始化省市区在picker中的数据
-        //需要根据省市区id计算出索引
-        this._areaIndex(provinces, 410000)
-        this._areaIndex(citys, 410100)
-        this._areaIndex(countys, 410101)
-
-        console.log(this._areaIndex(provinces, 410000))
-        console.log(this._areaIndex(citys, 410100))
-        console.log(this._areaIndex(countys, 410101))
-
-        this._setPickerValueAndData(15,0,0)  //地区所在数组索引
+        if (!options.addressId) {
+            this.setData({
+                pathName: '/User/insertAddress'
+            })
+        }
+        let addressInfo = JSON.parse(options.addressId)
+        this._initPicker(addressInfo)
     },
 
     /**
@@ -87,37 +94,64 @@ Page({
 
     },
     /**
+     * 初始化picker组件数据（每列数据，索引）
+     */
+    _initPicker(addressInfo) {
+        console.log(addressInfo)
+        //设置姓名、电话
+        this.setData({
+            personName: addressInfo.cname,
+            personPhone: addressInfo.cphone,
+            addressDetail: addressInfo.details,
+            addressStatus: addressInfo.addressStatus,
+            addressId: addressInfo.id,
+        })
+
+        //初始化省市区在picker中的数据
+        this._areaDataInit(addressInfo.addressProvince, addressInfo.addressCity, addressInfo.addressArea)
+
+        //需要根据省市区id计算出索引
+        let provinceIndex = this._areaIndex(provinces, addressInfo.addressProvince)
+        let cityIndex = this._areaIndex(citys, addressInfo.addressCity)
+        let countyIndex = this._areaIndex(countys, addressInfo.addressArea)
+
+        //地区所在数组索引
+        this._setPickerValueAndData(provinceIndex, cityIndex, countyIndex)
+    },
+    /**
      * 确认选择后取出对应的省市区值
      * 
      */
     _bindRegionChange(event) {
-        console.log(event.detail.value)
+        console.log('确认', event.detail.value)
         let provinceIndex = event.detail.value[0] || 0
         let cityIndex = event.detail.value[1] || 0
         let countyIndex = event.detail.value[2] || 0
 
-        console.log(provinces[provinceIndex].id)
-        console.log(citys[cityIndex].id)
-        console.log(countys[countyIndex].id)
-
         this.setData({
-            region: [provinces[provinceIndex].value, citys[cityIndex].value, countys[countyIndex].value]
+            region: [provinces[provinceIndex].value, citys[cityIndex].value, countys[countyIndex].value],
+            areaArrayId: [provinces[provinceIndex].id, citys[cityIndex].id, countys[countyIndex].id]
         })
+        console.log(this.data.areaArrayId)
     },
     /**
      * 单独列滚动后执行省市区数组过滤
      */
     _columnchange(event) {
+        console.log('picker单列change', event)
         let detail = event.detail
         if (event.detail.column === 0) {
             let currentProvinceId = provinces[event.detail.value].id
+
             citys = this._dataFilter(areaData.iosCitys, currentProvinceId)  //过滤市区数组
             countys = this._dataFilter(areaData.iosCountys, citys[0].id)  //过滤县数组
         }
         if (event.detail.column === 1) {
             let currentCitysId = areaData.iosCitys[event.detail.value].id
+
             countys = this._dataFilter(areaData.iosCountys, currentCitysId)  //过滤县数组
         }
+
         this.setData({
             areaArray: [provinces, citys, countys]
         })
@@ -164,12 +198,6 @@ Page({
             }
         })
 
-        provinces.forEach( (val, index) => {
-            if (val.id == provinceId) {
-                return index
-            }
-        })
-
         this.setData({
             areaArray: [provinces, citys, countys],
             areaArrayId: [provinceId, cityId, countyId]
@@ -185,10 +213,14 @@ Page({
         return areaIndex
     },
     /**
-     * 输入手机号触发事件
+     * 姓名输入框失去焦点后执行的函数
      */
-    _inputPhone(event) {
-        console.log(event.detail)
+    _blurName(event) {
+        console.log(event.detail.value)
+        if (!event.detail.value) return
+        this.setData({
+            personName: event.detail.value
+        })
     },
     /** 
      * 手机输入框失去焦点
@@ -200,15 +232,118 @@ Page({
                 icon: 'none',
                 duration: 800
             })
+        } else {
+            this.setData({
+                personPhone: event.detail.value
+            })
         }
+    },
+    /**
+     * textarea详细地址输入框blur
+     */
+    _blurAddressDetail(event) {
+        if (!event.detail.value) return
+        this.setData({
+            addressDetail: event.detail.value
+        })
+    },
+    _switchChange(event) {
+        if (event.detail.value) {
+            this.setData({
+                addressStatus: 1
+            })
+        } else {
+            this.setData({
+                addressStatus: 0
+            })
+        }
+    },
+    /**
+     * 校验带提交的数据是否存在或符合格式
+     */
+    _checkoutData() {
+        if (!this.data.areaArrayId.length) {
+            wx.showToast({
+                title: '请选择收货地址',
+                duration: 800,
+                icon: 'none'
+            })
+            return false
+        }
+        if (!this.data.personName) {
+            wx.showToast({
+                title: '请填写收件人姓名',
+                duration: 800,
+                icon: 'none'
+            })
+            return false
+        }
+        if (!this.data.personPhone) {
+            wx.showToast({
+                title: '请填写手机号',
+                duration: 800,
+                icon: 'none'
+            })
+            return false
+        }
+        return true
     },
     /**
      * 保存新增地址
      */
     _addAdress() {
-        console.log('save')
+        if (!this._checkoutData()) return
+        this._submitAddressData()
+    },
+    /**
+     * 提交数据
+     */
+    _submitAddressData() {
+        let addressData = {
+            addressProvince: this.data.areaArrayId[0],
+            addressArea: this.data.areaArrayId[2],
+            addressCity: this.data.areaArrayId[1],
+            addressCname: this.data.personName,
+            addressCphone: this.data.personPhone,
+            addressDetails: this.data.addressDetail,
+            addressStatus: this.data.addressStatus,
+            singtrue: wx.getStorageSync('singtrue')
+        }
+        if (this.data.addressId || this.data.addressId === 0) {
+            addressData.addressId = this.data.addressId
+        }
         wx.request({
-            url: App.baseHost + '/User/UpdateAddress'
+            method: 'POST',
+            url: App.globalData.baseHost + this.data.pathName,
+            data: addressData,
+            success: (res) => {
+                if (res.data.status == 200) {
+                    wx.showToast({
+                        title: '保存成功',
+                        duration: 800
+                    })
+                    setTimeout(() => {
+                        wx.navigateBack({
+                            delta: 1,
+                        })
+                    }, 800)
+                } else {
+                    wx.showToast({
+                        title: res.data.msg,
+                        icon: 'none',
+                        duration: 800,
+                        mask: true
+                    })
+                }
+            },
+            fail: (error) => {
+                wx.showToast({
+                    title: '保存失败，请稍后重试',
+                    icon: 'none',
+                    duration: 800,
+                    mask: true
+                })
+            }
         })
     }
 })

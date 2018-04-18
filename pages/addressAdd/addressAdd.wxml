@@ -1,24 +1,24 @@
 <!--pages/addressAdd/addressAdd.wxml-->
 <view class='common name'>
     <text class='common-text'>收货人</text>
-    <input class='common-value' confirm-type="完成" value="{{personName}}" placeholder="姓名" maxlength='10'></input>
+    <input class='common-value' confirm-type="完成" value="{{personName}}" placeholder="姓名" maxlength='10' bindblur="_blurName"></input>
 </view>
 <view class='common phone'>
     <text class='common-text'>联系电话</text>
-    <input class='common-value' type='number' confirm-type="完成" value="{{personPhone}}" placeholder="手机号" maxlength='11' bindinput="_inputPhone" bindblur="_blurPhone"></input>
+    <input class='common-value' type='number' confirm-type="完成" value="{{personPhone}}" placeholder="手机号" maxlength='11'  bindblur="_blurPhone"></input>
 </view>
 <picker mode="multiSelector" bindchange="_bindRegionChange" range="{{areaArray}}" range-key='value' value='{{areaArrayIndex}}' bindcolumnchange="_columnchange">
     <view class="common picker">
         <text class='common-text'>所在地区</text>
-        <view class='common-value'>{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+        <view class='common-value'>{{region[0]}} {{region[1]}} {{region[2]}}</view>
     </view>
 </picker>
 <view class='textarea'>
-    <textarea class='input-textarea' placeholder="请填写详细地址，不少于5个字"></textarea>
+    <textarea class='input-textarea' placeholder="请填写详细地址，不少于5个字" value="{{addressDetail}}" bindblur="_blurAddressDetail"></textarea>
 </view>
 <view class='switch'>
     <text>默认地址</text>
-    <switch color="#c136a9"></switch>
+    <switch color="#c136a9" checked="{{addressStatus == 1}}" bindchange="_switchChange"></switch>
 </view>
 <view class='add-btn' url='../addressAdd/addressAdd'>
     <button class='btn' bindtouchstart="_addAdress">保存</button>
