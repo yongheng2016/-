@@ -5,7 +5,7 @@
 
             <view class='header'>
             <view class='icon-pullDown'>
-                <i class='icon iconfont footer-icon-xiala' bind:touchstart="_hideDialog">tet</i>
+                <i class='icon iconfont footer-icon-xiala' bindtap="_hideDialog">tet</i>
             </view>
                 <view>
                     <view>tes</view>

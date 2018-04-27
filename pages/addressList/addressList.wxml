@@ -11,7 +11,7 @@
                 <view class='item-area'>{{item.province}}{{item.city}}{{item.are}}{{item.details}}</view>
             </view>
             <view class='item-operate'>
-                <view class='operate-default' id="{{item.id}}" bindtouchstart='_addressDefault'>
+                <view class='operate-default' id="{{item.id}}" bindtap='_addressDefault'>
                     <view class='icon-wrapper'>
                         <icon wx:if="{{defaultId? item.id==defaultId: item.addressStatus==1}}" type='success_no_circle' class='icon-active' size='14' color='#c136a9'></icon>
                         <i class='icon iconfont footer-icon-check02-copy'></i>
@@ -23,11 +23,11 @@
                         <i class='icon iconfont footer-icon-edit'></i>
                         <text class='operate-text'>编辑</text>
                     </navigator>
-                    <!-- <view class='item-edit' data-address="{{item}}" bindtouchstart="_editAddress">
+                    <!-- <view class='item-edit' data-address="{{item}}" bindtap="_editAddress">
                         <i class='icon iconfont footer-icon-edit'></i>
                         <text class='operate-text'>编辑</text>
                     </view> -->
-                    <view class='item-delete' id="{{item.id}}" bindtouchstart="_addressDelete">
+                    <view class='item-delete' id="{{item.id}}" bindtap="_addressDelete">
                         <i class='icon iconfont footer-icon-shanchu'></i>
                         <text class='operate-text'>删除</text>
                     </view>
@@ -36,7 +36,7 @@
         </view>
     </view>
     <navigator class='add-btn' url='../addressAdd/addressAdd'>
-        <button class='btn' bindtouchstart="_addAdress">新增地址</button>
+        <button class='btn' bindtap="_addAdress">新增地址</button>
     </navigator>
 </scroll-view>
 <!-- <add-address addressInfo="{{editAddressInfo}}"></add-address> -->

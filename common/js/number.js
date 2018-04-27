@@ -5,4 +5,4 @@ function checkPhone(phoneNumber) {
 
 module.exports = {
     checkPhone
-}
+}  

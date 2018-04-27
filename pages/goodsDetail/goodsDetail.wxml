@@ -1,5 +1,6 @@
 <!--pages/goodsDetail/goodsDetail.wxml-->
 <wxs src="../../common/wxs/imgUrl.wxs" module="tools" />
+<scroll-view>
 <swiper indicator-dots="true" autoplay="true" circular="true" indicator-active-color="#c136a9">
     <block wx:for="{{tools.cutFirstUrl(adImg, false)}}">
         <swiper-item>
@@ -17,7 +18,7 @@
         </view>
     </view>
     <view>
-        <view class='goods-param rightArrow' bindtouchstart='_showPanel'>
+        <view class='goods-param rightArrow' bindtap='_showPanel'>
             <view>产品规格</view>
         </view> 
         <view animation="{{animationPanel}}">
@@ -47,11 +48,12 @@
     </view>
 </view>
 <view class='footer-btn'>
-    <view class='footer-item footer-shopping-cart' bind:touchstart="_viewShoppingCart">
+    <view class='footer-item footer-shopping-cart' bindtap="_viewShoppingCart">
         <i class="icon iconfont footer-icon-gouwuche"></i>
         <view>查看清单</view>
     </view>
     <view class='footer-item footer-add-cart' bindtap="showActionSheet">加入清单</view>
-    <view class='footer-item footer-buy'>提交订单</view>
+    <view class='footer-item footer-buy' bindtap="_payfor">提交订单</view>
 </view>
 <add-shopping-cart-action-sheet addNumber="2" actionSheetShow="{{actionSheetShow}}" bind:click_btn="main_page_mehod"></add-shopping-cart-action-sheet>
+</scroll-view>

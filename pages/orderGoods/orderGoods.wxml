@@ -6,7 +6,7 @@
 <view class='tabWrapper'>
     <!-- <template is="pageTitle" data="{{title: '订单中心'}}"/> -->
     <view class='tabContainer'>
-        <view class='tabItem' wx:for="{{tabText}}" wx:key="*this" id="{{'tabItem-'+index}}" bindtouchstart="_checkoutTab">
+        <view class='tabItem' wx:for="{{tabText}}" wx:key="*this" id="{{'tabItem-'+index}}" bindtap="_checkoutTab">
             <view class="{{currentIndex == index ? 'tabItem active': 'tabItem' }}">{{item}} </view>
         </view>
     </view>

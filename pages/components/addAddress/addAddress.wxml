@@ -22,6 +22,6 @@
         <switch color="#c136a9"></switch>
     </view>
     <view class='add-btn' animation="{{showSaveBtn}}">
-        <button class='btn' bindtouchstart="_addAdress">保存</button>
+        <button class='btn' bindtap="_addAdress">保存</button>
     </view>
 </view>

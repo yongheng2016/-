@@ -1,4 +1,7 @@
 /* pages/orderGoodsDetail/orderGoodsDetail.wxss */
+page {
+    background: #fff;
+}
 .header {
     display: flex;
     justify-content: space-between;
@@ -53,7 +56,6 @@
 
 .goodsImg {
     width: 100px;
-    background: red;
 }
 
 .goodsinfo {

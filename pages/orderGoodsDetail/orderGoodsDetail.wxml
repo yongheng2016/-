@@ -26,9 +26,9 @@
         </view>
     </view>
     <view class='btn-container service'>
-        <view class='btn' bind:touchstart="_call">联系客服</view>
+        <view class='btn' bindtap="_call">联系客服</view>
     </view>
-    <view class='logisticsDetail rightArrow' bind:touchstart="_logisticsShow">
+    <view class='logisticsDetail rightArrow' bindtap="_logisticsShow">
         <i class='icon iconfont footer-icon-xiaohuoche'></i>
     </view>
     <view class='logistics'>

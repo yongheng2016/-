@@ -1,18 +1,18 @@
 <!--pages/components/AddShoppingCartActionSheet/AddShoppingCartActionSheet.wxml-->
-<view class='shade' animation="{{showShade}}" catch:touchmove bind:touchstart="_cancel">
-    <view animation="{{animationData}}" class='sheet-container' catch:touchstart>
+<view class='shade' animation="{{showShade}}" catch:touchmove bindtap="_cancel">
+    <view animation="{{animationData}}" class='sheet-container' catchtap>
         <view class='select-heder'>
             <text class='select-text'>选择信息</text>
-            <icon class='icon-cancel' type='cancel' color="#888" bind:touchstart="_cancel"></icon>
+            <icon class='icon-cancel' type='cancel' color="#888" bindtap="_cancel"></icon>
         </view>
         <view class='select-body'>
             <view>数量</view>
-            <view class='number-operate' bind:touchstart>
-                <view class='operate-common' bind:touchstart='_subtract'>-</view>
-                <input class='number' type='number' disabled="false" bind:input focus='true' value="{{goodsNumber}}"></input>
-                <view class='operate-common' bind:touchstart='_addNumber'>+</view>
+            <view class='number-operate' bindtap>
+                <view class='operate-common' bind:tap='_subtract'>-</view>
+                <input class='number' type='number' disabled="false" bind:inputfocus='true' value="{{goodsNumber}}"></input>
+                <view class='operate-common' bindtap='_addNumber'>+</view>
             </view>
         </view>
-        <button type='default' bind:touchstart="_submit">提交</button>
+        <button type='default' bindtap="_submit">提交</button>
     </view>
 </view>

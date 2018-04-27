@@ -30,7 +30,7 @@
                 <i class="icon iconfont footer-icon-jifen" style="color: #fd4646"></i>
                 <text class='text'>我的奖励</text>
             </navigator>
-            <navigator class='list-item' url='../address/address'>
+            <navigator class='list-item' url='../addressList/addressList'>
                 <i class="icon iconfont footer-icon-dizhi2" style="color: #46a5fd"></i>
                 <text class='text'>收货地址</text>
             </navigator>

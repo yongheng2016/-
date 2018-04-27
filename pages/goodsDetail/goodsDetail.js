@@ -126,5 +126,17 @@ Page({
         wx.navigateTo({
             url: `../logs/logs?goodsId=${this.data.addshoppingInfo.goodsId}&goodsNumber=${this.data.addshoppingInfo.goodsNumber}`
         })
+    },
+    _payfor() {
+        wx.requestPayment({
+            timeStamp: '',
+            nonceStr: '',
+            package: '',
+            signType: '',
+            paySign: '',
+            success: function(res) {},
+            fail: function(res) {},
+            complete: function(res) {},
+        })
     }
 })

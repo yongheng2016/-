@@ -1,9 +1,9 @@
 {
     "pages": [
+        "pages/index/index",
         "pages/addressList/addressList",
         "pages/orderGoods/orderGoods",
         "pages/addressAdd/addressAdd",
-        "pages/index/index",
         "pages/goodsList/goodsList",
         "pages/personalCenter/personalCenter",
         "pages/received/received",

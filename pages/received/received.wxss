@@ -1,4 +1,7 @@
 /* pages/received/received.wxss */
+page {
+    background: #fff;
+}
   .img-container {
      margin: 0 20px; 
     margin-bottom: 10px;

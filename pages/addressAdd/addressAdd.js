@@ -40,6 +40,7 @@ Page({
             this.setData({
                 pathName: '/User/insertAddress'
             })
+            return
         }
         let addressInfo = JSON.parse(options.addressId)
         this._initPicker(addressInfo)
@@ -248,14 +249,16 @@ Page({
         })
     },
     _switchChange(event) {
-        if (event.detail.value) {
-            this.setData({
-                addressStatus: 1
-            })
-        } else {
-            this.setData({
-                addressStatus: 0
-            })
+        switch (event.detail.value) {
+            case true:
+                this.setData({
+                    addressStatus: 1
+                })
+                break
+            case false:
+                this.setData({
+                    addressStatus: 0
+                })
         }
     },
     /**

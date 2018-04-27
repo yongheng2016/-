@@ -1,4 +1,7 @@
 /* pages/personalCenter/personalCenter.wxss */
+page {
+    background: #fff;
+}
 .header {
     display: flex;
     align-items: center;
